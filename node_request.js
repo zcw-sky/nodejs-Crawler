@@ -3,12 +3,12 @@
 */
 var http=require('http');
 var querystring=require('querystring');
-
+//设置请求参数
 var postData=querystring.stringify({
 	'content':'Buffer.isBuffer(chunk) 我打印出来类型是string',
 	'mid':'8837'
 });
-
+//设置头信息
 var options = {
   hostname: 'www.imooc.com',
   port: 80,
@@ -29,7 +29,7 @@ var options = {
 	'X-Requested-With':'XMLHttpRequest',
   }
 };
-
+//开始请求
 var req = http.request(options, (res) => {
   console.log('STATUS:'+res.statusCode);
   console.log('HEADERS:'+JSON.stringify(res.headers));
