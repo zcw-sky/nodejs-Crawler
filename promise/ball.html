@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>ball scroll</title>
+<style type="text/css">
+.ball1,.ball2,.ball3{width:30px;height:30px;border-radius: 15px;}
+.ball1{
+	background-color: red;
+}
+.ball2{
+	background-color: yellow;
+}
+.ball3{
+	background-color: blue;
+}
+</style>
+
+</head>
+<body>
+<div class="ball1" style="margin-left:0px;"></div>
+<div class="ball2" style="margin-left:0px;"></div>
+<div class="ball3" style="margin-left:0px;"></div>
+<script type="text/javascript">
+var ball1=document.querySelector('.ball1');
+var ball2=document.querySelector('.ball2');
+var ball3=document.querySelector('.ball3');
+//console.log(ball1);
+function animates (ball,disatnce,callb) {
+	// body...
+	setTimeout(function(){
+		var marginLeft=parseInt(ball.style.marginLeft);
+		//console.log('----');
+		//console.log(ball.style.marginLeft);
+		if(disatnce===marginLeft){
+			callb && callb();
+			//return;
+		}else{
+			//说明还没有移动到那个位置
+			if(disatnce>marginLeft){
+				marginLeft++;
+			}else{
+				marginLeft--;
+			}
+			ball.style.marginLeft=marginLeft;
+			animates(ball,disatnce,callb);
+		}
+	},13);
+}
+
+animates(ball1,100,function(){
+	animates(ball2,200,function(){
+		animates(ball3,300,function(){
+			animates(ball3,150,function(){
+				animates(ball2,150,function(){
+					animates(ball1,150,function(){
+						console.log('active close...');
+					});
+				});
+			});
+		});
+	});
+});
+
+
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@ var http=require('http');
 var querystring=require('querystring');
 //设置请求参数
 var postData=querystring.stringify({
-	'content':'Buffer.isBuffer(chunk) 我打印出来类型是string',
+	'content':'666',
 	'mid':'8837'
 });
 //设置头信息
